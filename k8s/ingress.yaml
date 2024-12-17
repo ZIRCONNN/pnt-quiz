@@ -1,0 +1,32 @@
+# kubectl apply -f ingress.yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: landing-page
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+  labels:
+    app: sample-app
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix # can be ImplementationSpecific, Exact
+            backend:
+              service:
+                name: landing-page # must be in same namespace
+                port:
+                  number: 80 # port of service
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-app
+                port:
+                  number: 80

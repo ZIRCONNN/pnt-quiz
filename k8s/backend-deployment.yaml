@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi
+  namespace: pnt-quiz
+  labels:
+    app: fastapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fastapi
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: fastapi
+        tier: backend
+    spec:
+      containers:az aks create \
+        - name: fastapi
+          image: richardyuwana/backend-app:latest
+          imagePullPolicy: Always

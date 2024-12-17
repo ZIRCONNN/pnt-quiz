@@ -1,0 +1,8 @@
+# Gunakan base image NGINX
+FROM nginx:latest
+
+# Copy file index.html ke direktori NGINX
+COPY index.html /usr/share/nginx/html/index.html
+
+# Ekspos port 80
+EXPOSE 80
