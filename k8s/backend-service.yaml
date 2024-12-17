@@ -11,5 +11,5 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
-      port: 8030 # port of the service
-      targetPort: 8000 # port of the application/pod
+      port: 8030
+      targetPort: 8000
