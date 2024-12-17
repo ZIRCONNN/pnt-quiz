@@ -17,7 +17,7 @@ spec:
         app: fastapi
         tier: backend
     spec:
-      containers:az aks create \
+      containers:
         - name: fastapi
           image: richardyuwana/backend-app:latest
           imagePullPolicy: Always
