@@ -3,7 +3,6 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: landing-page
 spec:
-  # refers to Deployment
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
