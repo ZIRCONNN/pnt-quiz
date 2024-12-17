@@ -1,5 +1,3 @@
-# kubectl apply -f ingress.yaml
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -17,12 +15,12 @@ spec:
       http:
         paths:
           - path: /
-            pathType: Prefix # can be ImplementationSpecific, Exact
+            pathType: Prefix
             backend:
               service:
-                name: landing-page # must be in same namespace
+                name: landing-page
                 port:
-                  number: 80 # port of service
+                  number: 80
           - path: /api
             pathType: Prefix
             backend:
